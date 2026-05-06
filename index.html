@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>E-commerce API</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border-bottom: 1px solid #334155;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #38bdf8;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: #94a3b8;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 20px;
+    }
+
+    .links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 10px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover { opacity: 0.85; }
+    .btn-primary { background: #38bdf8; color: #0f172a; }
+    .btn-secondary { background: #1e293b; color: #e2e8f0; border: 1px solid #334155; }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .section { margin-bottom: 50px; }
+
+    .section h2 {
+      font-size: 1.5rem;
+      color: #38bdf8;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #334155;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .card h3 { color: #f8fafc; margin-bottom: 8px; }
+    .card p { color: #94a3b8; font-size: 0.9rem; line-height: 1.6; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #1e293b;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    thead { background: #0f172a; }
+
+    th {
+      padding: 14px 16px;
+      text-align: left;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748b;
+    }
+
+    td {
+      padding: 14px 16px;
+      border-top: 1px solid #334155;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+    }
+
+    .method {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.78rem;
+      font-family: monospace;
+    }
+
+    .get    { background: #064e3b; color: #34d399; }
+    .post   { background: #1e3a5f; color: #60a5fa; }
+    .put    { background: #451a03; color: #fb923c; }
+    .delete { background: #450a0a; color: #f87171; }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .badge-public  { background: #064e3b; color: #34d399; }
+    .badge-private { background: #3b1d5e; color: #c084fc; }
+
+    code {
+      background: #0f172a;
+      color: #38bdf8;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.85rem;
+    }
+
+    .url-box {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .url-box span { color: #94a3b8; font-size: 0.9rem; }
+    .url-box code { font-size: 0.95rem; }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #475569;
+      border-top: 1px solid #1e293b;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🛒 E-commerce REST API</h1>
+  <p>Prosty katalog produktów z zamówieniami. Zbudowany w Node.js + Express, wdrożony na Railway.</p>
+  <div class="links">
+    <a class="btn btn-primary" href="https://ecommerce-api-production-54f3.up.railway.app/products" target="_blank">
+      🚀 Live API
+    </a>
+    <a class="btn btn-secondary" href="https://github.com/H4V0C-Stack/ecommerce-api" target="_blank">
+      📦 GitHub
+    </a>
+  </div>
+</header>
+
+<main>
+
+  <div class="section">
+    <h2>O projekcie</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>🔐 Autoryzacja JWT</h3>
+        <p>Rejestracja i logowanie użytkowników. Chronione endpointy wymagają tokenu Bearer w nagłówku Authorization.</p>
+      </div>
+      <div class="card">
+        <h3>📦 Katalog produktów</h3>
+        <p>Pełne operacje CRUD na produktach. Publiczne odczytywanie, modyfikacja wymaga autoryzacji.</p>
+      </div>
+      <div class="card">
+        <h3>🧾 Zamówienia</h3>
+        <p>Tworzenie zamówień z wielu produktów. Automatyczne obliczanie ceny całkowitej. Każdy użytkownik widzi tylko swoje zamówienia.</p>
+      </div>
+      <div class="card">
+        <h3>✅ Walidacja i błędy</h3>
+        <p>Walidacja danych wejściowych, poprawne kody HTTP (400, 401, 403, 404, 409, 500), logika biznesowa oddzielona od kontrolerów.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Base URL</h2>
+    <div class="url-box">
+      <span>Produkcja:</span>
+      <code>https://ecommerce-api-production-54f3.up.railway.app</code>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Endpointy API</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Metoda</th>
+          <th>Endpoint</th>
+          <th>Opis</th>
+          <th>Dostęp</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="method post">POST</span></td>
+          <td><code>/auth/register</code></td>
+          <td>Rejestracja nowego użytkownika</td>
+          <td><span class="badge badge-public">Publiczny</span></td>
+        </tr>
+        <tr>
+          <td><span class="method post">POST</span></td>
+          <td><code>/auth/login</code></td>
+          <td>Logowanie — zwraca token JWT</td>
+          <td><span class="badge badge-public">Publiczny</span></td>
+        </tr>
+        <tr>
+          <td><span class="method get">GET</span></td>
+          <td><code>/products</code></td>
+          <td>Lista wszystkich produktów</td>
+          <td><span class="badge badge-public">Publiczny</span></td>
+        </tr>
+        <tr>
+          <td><span class="method get">GET</span></td>
+          <td><code>/products/:id</code></td>
+          <td>Jeden produkt po ID</td>
+          <td><span class="badge badge-public">Publiczny</span></td>
+        </tr>
+        <tr>
+          <td><span class="method post">POST</span></td>
+          <td><code>/products</code></td>
+          <td>Dodaj nowy produkt</td>
+          <td><span class="badge badge-private">🔒 JWT</span></td>
+        </tr>
+        <tr>
+          <td><span class="method put">PUT</span></td>
+          <td><code>/products/:id</code></td>
+          <td>Zaktualizuj produkt</td>
+          <td><span class="badge badge-private">🔒 JWT</span></td>
+        </tr>
+        <tr>
+          <td><span class="method delete">DELETE</span></td>
+          <td><code>/products/:id</code></td>
+          <td>Usuń produkt</td>
+          <td><span class="badge badge-private">🔒 JWT</span></td>
+        </tr>
+        <tr>
+          <td><span class="method post">POST</span></td>
+          <td><code>/orders</code></td>
+          <td>Utwórz zamówienie</td>
+          <td><span class="badge badge-private">🔒 JWT</span></td>
+        </tr>
+        <tr>
+          <td><span class="method get">GET</span></td>
+          <td><code>/orders</code></td>
+          <td>Moje zamówienia</td>
+          <td><span class="badge badge-private">🔒 JWT</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Przykład użycia</h2>
+    <div class="card">
+      <h3 style="margin-bottom: 12px;">1. Zarejestruj się</h3>
+      <code>POST /auth/register → { "email": "...", "password": "..." }</code>
+      <h3 style="margin: 16px 0 12px;">2. Zaloguj się i pobierz token</h3>
+      <code>POST /auth/login → { "token": "eyJ..." }</code>
+      <h3 style="margin: 16px 0 12px;">3. Używaj tokenu w nagłówku</h3>
+      <code>Authorization: Bearer eyJ...</code>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  E-commerce REST API — Node.js + Express · Wdrożony na Railway · Dokumentacja na AWS S3
+</footer>
+
+</body>
+</html>
