@@ -239,25 +239,25 @@
 <body>
 
 <header>
-  <h1>🛒 E-commerce REST API</h1>
+  <h1> E-commerce REST API</h1>
   <p>Katalog produktów z zamówieniami zbudowany w Python + FastAPI + Pydantic. Wdrożony w chmurze na Railway.</p>
   <div class="badges">
-    <span class="badge-tech">🐍 Python</span>
-    <span class="badge-tech">⚡ FastAPI</span>
-    <span class="badge-tech">✅ Pydantic</span>
-    <span class="badge-tech">🔐 JWT</span>
-    <span class="badge-tech">☁️ Railway</span>
-    <span class="badge-tech">🪣 AWS S3</span>
+    <span class="badge-tech"> Python</span>
+    <span class="badge-tech"> FastAPI</span>
+    <span class="badge-tech"> Pydantic</span>
+    <span class="badge-tech"> JWT</span>
+    <span class="badge-tech"> Railway</span>
+    <span class="badge-tech"> AWS S3</span>
   </div>
   <div class="links">
-    <a class="btn btn-swagger" href="https://ecommerce-api-production-54f3.up.railway.app/docs" target="_blank">
-      📄 Swagger UI
+    <a class="btn btn-swagger" href="https://ecommerce-api-production-1169.up.railway.app/docs" target="_blank">
+       Swagger UI
     </a>
-    <a class="btn btn-primary" href="https://ecommerce-api-production-54f3.up.railway.app" target="_blank">
-      🚀 Live API
+    <a class="btn btn-primary" href="https://ecommerce-api-production-1169.up.railway.app" target="_blank">
+       Live API
     </a>
     <a class="btn btn-secondary" href="https://github.com/H4V0C-Stack/ecommerce-api" target="_blank">
-      📦 GitHub
+       GitHub
     </a>
   </div>
 </header>
@@ -268,32 +268,32 @@
     <h2>Funkcje projektu</h2>
     <div class="cards">
       <div class="card">
-        <div class="card-icon">🔐</div>
+        <div class="card-icon"></div>
         <h3>Autoryzacja JWT</h3>
         <p>Rejestracja i logowanie użytkowników. Chronione endpointy wymagają tokenu Bearer.</p>
       </div>
       <div class="card">
-        <div class="card-icon">✅</div>
+        <div class="card-icon"></div>
         <h3>Walidacja Pydantic</h3>
         <p>Wszystkie dane wejściowe są walidowane przez modele Pydantic z czytelnymi komunikatami błędów.</p>
       </div>
       <div class="card">
-        <div class="card-icon">📦</div>
+        <div class="card-icon"></div>
         <h3>Katalog produktów</h3>
         <p>Pełne operacje CRUD. Odczyt publiczny, modyfikacja wymaga autoryzacji JWT.</p>
       </div>
       <div class="card">
-        <div class="card-icon">🧾</div>
+        <div class="card-icon"></div>
         <h3>Zamówienia</h3>
         <p>Tworzenie zamówień z wielu produktów z automatycznym obliczaniem ceny.</p>
       </div>
       <div class="card">
-        <div class="card-icon">📄</div>
+        <div class="card-icon"></div>
         <h3>Swagger UI</h3>
         <p>Automatyczna interaktywna dokumentacja API dostępna pod adresem <code>/docs</code>.</p>
       </div>
       <div class="card">
-        <div class="card-icon">☁️</div>
+        <div class="card-icon"></div>
         <h3>Cloud Ready</h3>
         <p>Wdrożony na Railway z autodeploy z GitHub. Dokumentacja na AWS S3.</p>
       </div>
@@ -336,7 +336,7 @@
     <div class="url-box">
       <div>
         <div class="url-label">Produkcja</div>
-        <code>https://ecommerce-api-production-54f3.up.railway.app</code>
+        <code>ecommerce-api-production-1169.up.railway.app</code>
       </div>
       <div>
         <div class="url-label">Dokumentacja</div>
@@ -385,31 +385,31 @@
           <td><span class="method post">POST</span></td>
           <td><code>/products</code></td>
           <td>Dodaj nowy produkt</td>
-          <td><span class="access private">🔒 JWT</span></td>
+          <td><span class="access private"> JWT</span></td>
         </tr>
         <tr>
           <td><span class="method put">PUT</span></td>
           <td><code>/products/{id}</code></td>
           <td>Zaktualizuj produkt</td>
-          <td><span class="access private">🔒 JWT</span></td>
+          <td><span class="access private"> JWT</span></td>
         </tr>
         <tr>
           <td><span class="method delete">DELETE</span></td>
           <td><code>/products/{id}</code></td>
           <td>Usuń produkt</td>
-          <td><span class="access private">🔒 JWT</span></td>
+          <td><span class="access private"> JWT</span></td>
         </tr>
         <tr>
           <td><span class="method post">POST</span></td>
           <td><code>/orders</code></td>
           <td>Utwórz zamówienie</td>
-          <td><span class="access private">🔒 JWT</span></td>
+          <td><span class="access private"> JWT</span></td>
         </tr>
         <tr>
           <td><span class="method get">GET</span></td>
           <td><code>/orders</code></td>
           <td>Moje zamówienia</td>
-          <td><span class="access private">🔒 JWT</span></td>
+          <td><span class="access private"> JWT</span></td>
         </tr>
       </tbody>
     </table>
